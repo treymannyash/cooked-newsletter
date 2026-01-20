@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-cream text-sage-900 antialiased;
+  }
+
+  ::selection {
+    @apply bg-sage-400/30;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-terracotta-500 via-amber-400 to-sage-400;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .glow-orb {
+    @apply absolute rounded-full pointer-events-none;
+    filter: blur(120px);
+  }
+
+  .input-base {
+    @apply w-full px-6 py-4 text-base bg-white border-2 border-sage-100 rounded-2xl 
+           text-sage-900 outline-none transition-all duration-300
+           placeholder:text-sage-300
+           focus:border-sage-400 focus:shadow-[0_0_0_4px_rgba(125,154,120,0.12),0_4px_12px_rgba(125,154,120,0.08)];
+  }
+
+  .btn-primary {
+    @apply w-full px-6 py-4 text-base font-semibold font-display
+           bg-gradient-to-r from-terracotta-500 to-terracotta-400
+           border-none rounded-2xl text-white cursor-pointer
+           transition-all duration-300
+           shadow-[0_4px_20px_rgba(224,122,75,0.25)]
+           hover:translate-y-[-2px] hover:shadow-[0_8px_32px_rgba(224,122,75,0.35)]
+           active:translate-y-0;
+  }
+
+  .feature-card {
+    @apply bg-white border border-sage-100 rounded-3xl p-9
+           transition-all duration-400
+           shadow-[0_2px_12px_rgba(125,154,120,0.04)]
+           hover:border-sage-200 hover:translate-y-[-6px] 
+           hover:shadow-[0_16px_48px_rgba(125,154,120,0.1)];
+  }
+
+  .nav-link {
+    @apply text-sage-600 no-underline text-[15px] font-medium
+           transition-colors duration-200 hover:text-terracotta-500;
+  }
+
+  .tag {
+    @apply px-5 py-3 bg-sage-400/10 border border-sage-400/15 
+           rounded-full text-sm font-medium text-sage-600 whitespace-nowrap;
+  }
+
+  .section-title {
+    @apply font-display text-2xl md:text-4xl font-bold tracking-tight text-sage-900;
+  }
+}
+
+@layer utilities {
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .mask-marquee {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+}
