@@ -31,13 +31,13 @@ export default function Navigation() {
         <a href="#features" className="nav-link hidden md:block">
           What You Get
         </a>
-        <a
-          href="https://twitter.com/cooked"
+        
+          href="https://twitter.com/asheredwards_"
           target="_blank"
           rel="noopener noreferrer"
           className="px-5 py-2.5 bg-white border border-sage-100 rounded-xl text-sage-900 text-sm font-semibold transition-all duration-200 hover:border-sage-200 hover:shadow-md"
         >
-          Follow @cooked
+          Follow @asheredwards_
         </a>
       </div>
     </nav>
