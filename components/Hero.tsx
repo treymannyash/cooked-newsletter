@@ -28,6 +28,26 @@ export default function Hero() {
         <div className="mt-10 max-w-md animate-slide-up animate-delay-400">
           <EmailForm />
         </div>
+
+        {/* Secondary CTAs */}
+        <div className="mt-6 flex flex-wrap items-center gap-4 animate-slide-up animate-delay-400">
+          
+            href="https://twitter.com/asheredwards_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-sage-200 rounded-xl text-sage-700 text-sm font-semibold hover:border-sage-300 hover:shadow-md transition-all"
+          >
+            🐦 Follow on Twitter
+          </a>
+          
+            href="https://instagram.com/ashsatmanny"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-sage-200 rounded-xl text-sage-700 text-sm font-semibold hover:border-sage-300 hover:shadow-md transition-all"
+          >
+            📸 Follow on Instagram
+          </a>
+        </div>
       </div>
 
       {/* Scroll Indicator */}
