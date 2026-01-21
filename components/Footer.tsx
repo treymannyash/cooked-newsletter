@@ -14,28 +14,30 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-7">
-          <a
-            href="https://twitter.com/cooked"
+          
+            href="https://twitter.com/asheredwards_"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
           >
             Twitter
           </a>
-          <a
-            href="https://tiktok.com/@cooked"
+          
+            href="https://instagram.com/ashsatmanny"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
+          >
+            Instagram
+          </a>
+          
+            href="https://tiktok.com/@ashsatmanny"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
           >
             TikTok
           </a>
-          <Link
-            href="/archive"
-            className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
-          >
-            Archive
-          </Link>
         </div>
       </div>
     </footer>
