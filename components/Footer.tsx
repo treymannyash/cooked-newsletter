@@ -12,32 +12,10 @@ export default function Footer() {
             © {new Date().getFullYear()} Cooked. All rights reserved.
           </p>
         </div>
-
         <div className="flex items-center gap-7">
-          
-            href="https://twitter.com/asheredwards_"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
-          >
-            Twitter
-          </a>
-          
-            href="https://instagram.com/ashsatmanny"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
-          >
-            Instagram
-          </a>
-          
-            href="https://tiktok.com/@ashsatmanny"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors"
-          >
-            TikTok
-          </a>
+          <a href="https://twitter.com/asheredwards_" target="_blank" rel="noopener noreferrer" className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors">Twitter</a>
+          <a href="https://instagram.com/ashsatmanny" target="_blank" rel="noopener noreferrer" className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors">Instagram</a>
+          <a href="https://tiktok.com/@ashsatmanny" target="_blank" rel="noopener noreferrer" className="text-sage-400 text-sm hover:text-terracotta-500 transition-colors">TikTok</a>
         </div>
       </div>
     </footer>
