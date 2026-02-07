@@ -1,21 +1,60 @@
+import JargonTerm from './JargonTerm';
+
 const features = [
   {
     icon: '📉',
     title: 'WTF just happened',
-    description:
-      "The week's macro news explained like you're not a finance major. Fed moves, inflation data, market chaos — translated.",
+    description: (
+      <>
+        The week's macro news explained like you're not a finance major.{' '}
+        <JargonTerm 
+          term="Fed Moves" 
+          definition="When the Federal Reserve changes interest rates or money supply. These decisions ripple through your mortgage, savings, and job market."
+        >
+          Fed moves
+        </JargonTerm>
+        , inflation data, market chaos — translated.
+      </>
+    ),
   },
   {
     icon: '🔥',
     title: "Why you're cooked",
-    description:
-      "Deep dives on the systemic stuff. Why housing is broken. Why your savings are melting. Why the game is rigged.",
+    description: (
+      <>
+        Deep dives on the systemic stuff. Why housing is broken. Why your savings are melting. Why the{' '}
+        <JargonTerm 
+          term="Cantillon Effect" 
+          definition="Those closest to newly-created money benefit first. By the time it reaches you, prices have already gone up. The rich get richer, structurally."
+        >
+          game is rigged
+        </JargonTerm>
+        .
+      </>
+    ),
   },
   {
     icon: '₿',
     title: 'The Bitcoin angle',
-    description:
-      "What Bitcoiners see that mainstream finance ignores. Not hopium. Not FUD. Just the perspective, explained clearly.",
+    description: (
+      <>
+        What Bitcoiners see that mainstream finance ignores. Not{' '}
+        <JargonTerm 
+          term="Hopium" 
+          definition="Overly optimistic predictions with no basis in reality. Pure hopeful thinking. We don't do that here."
+        >
+          hopium
+        </JargonTerm>
+        . Not{' '}
+        <JargonTerm 
+          term="FUD" 
+          definition="Fear, Uncertainty, and Doubt. Spreading negativity to manipulate markets or opinions. Also not our style."
+        >
+          FUD
+        </JargonTerm>
+        . Just the perspective, explained clearly.
+      </>
+    ),
   },
   {
     icon: '🧠',
@@ -23,7 +62,7 @@ const features = [
     description:
       "Every confusing term, demystified. Build real understanding, not just surface-level takes.",
   },
-]
+];
 
 export default function Features() {
   return (
@@ -49,5 +88,5 @@ export default function Features() {
         ))}
       </div>
     </section>
-  )
+  );
 }
