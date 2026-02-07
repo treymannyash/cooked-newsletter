@@ -83,4 +83,64 @@
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
   }
-}
+.jargon-term {
+    @apply relative cursor-help
+           border-b-2 border-dotted border-terracotta-400/40
+           transition-all duration-200
+           hover:border-terracotta-500/60 hover:text-terracotta-600;
+  }
+
+  .jargon-tooltip {
+    @apply absolute left-1/2 -translate-x-1/2 z-50
+           w-[280px] pointer-events-none;
+    animation: tooltipFadeIn 0.2s ease-out;
+  }
+
+  .jargon-tooltip.tooltip-top {
+    @apply bottom-[calc(100%+12px)];
+  }
+
+  .jargon-tooltip.tooltip-bottom {
+    @apply top-[calc(100%+12px)];
+  }
+
+  .tooltip-content {
+    @apply bg-white border-2 border-sage-200 rounded-2xl p-5
+           shadow-[0_8px_32px_rgba(125,154,120,0.16),0_2px_8px_rgba(125,154,120,0.08)];
+  }
+
+  .tooltip-term {
+    @apply block font-display font-bold text-sm text-terracotta-500 mb-2;
+  }
+
+  .tooltip-definition {
+    @apply text-[14px] leading-relaxed text-sage-700;
+  }
+
+  .tooltip-arrow {
+    @apply absolute left-1/2 -translate-x-1/2 
+           w-0 h-0 
+           border-l-[8px] border-l-transparent
+           border-r-[8px] border-r-transparent;
+  }
+
+  .tooltip-top .tooltip-arrow {
+    @apply bottom-[-10px]
+           border-t-[10px] border-t-sage-200;
+  }
+
+  .tooltip-bottom .tooltip-arrow {
+    @apply top-[-10px]
+           border-b-[10px] border-b-sage-200;
+  }
+
+  @keyframes tooltipFadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
