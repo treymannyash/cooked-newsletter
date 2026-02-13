@@ -1,0 +1,127 @@
+'use client'
+
+import React, { useState } from 'react';
+import { ChevronRight, ChevronDown, Book, Sparkles, Key, Wallet, Shield, Zap, Layers, Lock, Clock, Timer, GitBranch, RefreshCw, CheckCircle, FileText, Tool } from 'lucide-react';
+
+export function BIPExplainer() {
+  const [expandedBip, setExpandedBip] = useState<number | null>(null);
+
+  const bips = [
+    // ... paste all the BIPs array from cooked-landing-merged.jsx here
+  ];
+
+  const toggleBip = (index: number) => {
+    setExpandedBip(expandedBip === index ? null : index);
+  };
+
+  return (
+    <section id="bips" className="py-24 px-6 bg-gradient-to-b from-black to-orange-950/20">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-block mb-4 px-6 py-2 bg-orange-500 rounded-full text-black font-bold text-sm">
+            Deep Dive
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            How Bitcoin Actually <span className="text-orange-500">Works</span>
+          </h2>
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            Bitcoin didn't stay frozen in 2009. It evolved through community-driven improvements called BIPs. 
+            Here's how it went from "magic internet money" to a sophisticated financial network.
+          </p>
+        </div>
+
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical line */}
+          <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-orange-600 to-orange-800 opacity-30" />
+
+          {/* BIP Cards */}
+          <div className="space-y-6">
+            {bips.map((bip, index) => {
+              const Icon = bip.icon;
+              const isExpanded = expandedBip === index;
+              
+              return (
+                <div key={index} className="relative">
+                  <div className="absolute left-6 w-5 h-5 rounded-full bg-orange-500 border-4 border-black" />
+                  
+                  <div className="ml-16">
+                    <button
+                      onClick={() => toggleBip(index)}
+                      className="w-full text-left bg-gray-900/50 backdrop-blur-lg rounded-xl p-6 hover:bg-gray-900/70 transition-all duration-300 border border-gray-800 hover:border-orange-500/50"
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-3 mb-2">
+                            <div className="p-2 rounded-lg bg-orange-500">
+                              <Icon className="w-5 h-5 text-black" />
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <span className="text-gray-400 text-sm font-mono">{bip.number}</span>
+                                <span className="text-gray-500">•</span>
+                                <span className="text-gray-400 text-sm">{bip.year}</span>
+                              </div>
+                              <h3 className="text-2xl font-bold text-white">{bip.title}</h3>
+                            </div>
+                          </div>
+                          <p className="text-gray-400">{bip.subtitle}</p>
+                        </div>
+                        <div className="ml-4">
+                          {isExpanded ? (
+                            <ChevronDown className="w-6 h-6 text-orange-500" />
+                          ) : (
+                            <ChevronRight className="w-6 h-6 text-gray-400" />
+                          )}
+                        </div>
+                      </div>
+                    </button>
+
+                    {isExpanded && (
+                      <div className="mt-4 bg-gray-900/30 backdrop-blur-lg rounded-xl p-6 border border-gray-800 space-y-4">
+                        <div>
+                          <h4 className="text-lg font-semibold text-orange-400 mb-2">What It Is</h4>
+                          <p className="text-gray-300 leading-relaxed">{bip.explanation}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-lg font-semibold text-orange-400 mb-2">Real-World Analogy</h4>
+                          <p className="text-gray-300 leading-relaxed">{bip.realWorld}</p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="text-lg font-semibold text-orange-400 mb-2">Why It Matters</h4>
+                          <p className="text-gray-300 leading-relaxed">{bip.impact}</p>
+                        </div>
+                        
+                        <div className="pt-4 border-t border-gray-800">
+                          <div className="flex items-start gap-2 mb-4">
+                            <Sparkles className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                            <div>
+                              <span className="text-orange-500 font-semibold">Fun Fact: </span>
+                              <span className="text-gray-400">{bip.funFact}</span>
+                            </div>
+                          </div>
+                          
+                          
+                            href={bip.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-lg transition-colors border border-gray-700 hover:border-orange-500"
+                          >
+                            <Book className="w-4 h-4" />
+                            <span className="text-sm font-semibold">Read Full BIP on GitHub</span>
+                          </a>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
