@@ -8,6 +8,7 @@ import {
   FinalCTA,
   Footer,
   BackgroundOrbs,
+  BIPExplainer, // Add this
 } from '@/components'
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
         <Marquee />
         <About />
         <Features />
+        <BIPExplainer /> {/* Add this between Features and Quote */}
         <Quote />
         <FinalCTA />
         <Footer />
