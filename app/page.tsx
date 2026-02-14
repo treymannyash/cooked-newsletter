@@ -22,7 +22,7 @@ export default function Home() {
         <Marquee />
         <About />
         <Features />
-        <BIPExplainer /> {/* Add this between Features and Quote */}
+        <BIPExplainer /> {/* Add this line */}
         <Quote />
         <FinalCTA />
         <Footer />
