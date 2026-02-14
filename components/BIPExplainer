@@ -7,7 +7,198 @@ export function BIPExplainer() {
   const [expandedBip, setExpandedBip] = useState<number | null>(null);
 
   const bips = [
-    // ... paste all the BIPs array from cooked-landing-merged.jsx here
+    {
+      number: "BIP 1",
+      year: "2011",
+      title: "The Blueprint",
+      subtitle: "How Bitcoin Improves Itself",
+      icon: Book,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0001.mediawiki",
+      explanation: "Imagine if your phone's operating system could only be updated by a single company's decision. Bitcoin said 'nope!' Instead, BIP 1 created a democratic process where anyone can propose improvements. Think of it as Bitcoin's suggestion box—but one where good ideas actually get implemented.",
+      realWorld: "Ever wished you could suggest a feature for your favorite app? Bitcoin lets developers do exactly that, and if the community agrees, it becomes part of Bitcoin itself.",
+      impact: "Without this, Bitcoin would be stuck in 2009. This is why Bitcoin can evolve while staying decentralized.",
+      funFact: "The BIP process was inspired by how Python (the programming language) improves itself!"
+    },
+    {
+      number: "BIP 11",
+      year: "2011",
+      title: "The Vault Door",
+      subtitle: "M-of-N Standard Multisig",
+      icon: Shield,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki",
+      explanation: "Before BIP 11, Bitcoin was mostly 'one key = your money.' This introduced official support for requiring multiple signatures—like a bank vault that needs 3 out of 5 board members to open. No single person can run off with the funds.",
+      realWorld: "Think of it like a joint bank account on steroids. You could set up a company treasury where any 2 of 3 executives need to approve spending. Or a family inheritance that needs 3 out of 4 siblings to agree.",
+      impact: "Made Bitcoin usable for businesses and organizations. Without this, every company would need to trust one person with all the keys—a terrible idea.",
+      funFact: "This was added just months after Bitcoin's first real-world transaction (the famous pizza purchase)!"
+    },
+    {
+      number: "BIP 16",
+      year: "2012",
+      title: "The Gift Box",
+      subtitle: "Pay-to-Script-Hash (P2SH)",
+      icon: Lock,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki",
+      explanation: "Before BIP 16, sending Bitcoin was like handing cash directly to someone. After BIP 16, you could put the cash in a locked box with custom rules—like 'needs 2 out of 3 keys to open' or 'can only be opened after Tuesday.' The cool part? The sender doesn't need to know the complex rules, just the box's address.",
+      realWorld: "Like a safe deposit box that needs multiple family members' keys to open. Perfect for company funds or shared savings where no single person should have total control.",
+      impact: "Made multisig wallets practical and paved the way for more complex Bitcoin uses. Addresses starting with '3' are P2SH addresses!",
+      funFact: "This was Bitcoin's first 'soft fork'—an upgrade that didn't split the network."
+    },
+    {
+      number: "BIP 21",
+      year: "2012",
+      title: "The QR Revolution",
+      subtitle: "Bitcoin URI Scheme",
+      icon: Sparkles,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki",
+      explanation: "Ever scan a QR code to pay for something? Thank BIP 21. Before this, you had to manually copy-paste Bitcoin addresses (34 random characters—what could go wrong?). BIP 21 standardized the 'bitcoin:' links and QR codes that let you click or scan to pay.",
+      realWorld: "Like how clicking a phone number automatically opens your phone app, clicking 'bitcoin:...' opens your wallet with the amount and address already filled in. No typos, no mistakes.",
+      impact: "Made Bitcoin payments actually usable for normal humans. This is why you can scan QR codes at Bitcoin-accepting stores today.",
+      funFact: "The format is: bitcoin:[address]?amount=X&label=Coffee. Simple but game-changing!"
+    },
+    {
+      number: "BIP 32",
+      year: "2012",
+      title: "The Family Tree",
+      subtitle: "Hierarchical Deterministic Wallets",
+      icon: Layers,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki",
+      explanation: "Imagine having to remember a different password for every website versus having one master password that generates unique passwords for each site. BIP 32 is the latter. From one 'seed,' your wallet can create billions of Bitcoin addresses—all different, all secure, all recoverable from that one seed.",
+      realWorld: "Lost your phone with your Bitcoin wallet? No problem. Just enter your seed phrase into a new wallet, and all your addresses (and their balances) magically reappear. It's like having a master key to infinite locked rooms.",
+      impact: "Before this, backing up a wallet meant backing up EVERY private key. Now? Just backup 12-24 words and you're covered for life.",
+      funFact: "The 'HD' in HD Wallet doesn't mean High Definition—it means Hierarchical Deterministic!"
+    },
+    {
+      number: "BIP 39",
+      year: "2013",
+      title: "The Memory Palace",
+      subtitle: "Mnemonic Code for Wallets",
+      icon: Key,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki",
+      explanation: "Try memorizing this: '5Kb8kLf9zgWQnogidDA76MzPL6TsZZY36hWXMssSzNydYXYB9KF'. Impossible, right? BIP 39 turns that cryptographic nightmare into 12-24 everyday words like 'army van defense follow butterfly...' Way easier to write down, way harder to mess up.",
+      realWorld: "It's like turning your house key into a poem. Instead of copying a metal shape perfectly, you just remember the words. Get the words right, and you can recreate the key anywhere.",
+      impact: "This is why every modern Bitcoin wallet gives you a 'seed phrase' to write down. These 12-24 words ARE your Bitcoin—don't lose them!",
+      funFact: "There are 2,048 possible words in the BIP 39 word list, carefully chosen to be easy to spell and hard to confuse!"
+    },
+    {
+      number: "BIP 44",
+      year: "2014",
+      title: "The Filing Cabinet",
+      subtitle: "Multi-Account Hierarchy",
+      icon: Wallet,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki",
+      explanation: "You know how one email account can have unlimited folders? BIP 44 does that for Bitcoin wallets. One seed phrase can manage separate 'accounts' for different purposes—personal spending, savings, business—and even accounts for entirely different cryptocurrencies, all organized neatly.",
+      realWorld: "Like having multiple bank accounts under one login. Your paycheck goes to savings, daily spending comes from checking, and business expenses track separately. Same principle, but with crypto.",
+      impact: "This standardization means wallets from different companies can all understand the same structure. Move from one wallet app to another seamlessly!",
+      funFact: "The path 'm/44'/0'/0'/0/0' might look like gibberish, but it's actually a precise map to find specific addresses in your wallet's family tree!"
+    },
+    {
+      number: "BIP 65",
+      year: "2014 (activated 2015)",
+      title: "The Time Capsule",
+      subtitle: "CheckLockTimeVerify (CLTV)",
+      icon: Clock,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki",
+      explanation: "Want to lock up Bitcoin until a specific date? CLTV lets you do that on-chain. It's like putting money in a safe that literally cannot be opened until January 1st, 2030—not by you, not by anyone. The math itself prevents early spending.",
+      realWorld: "Think trust funds that unlock at age 18, or inheritance that can't be touched for 5 years. Or escrow services where funds release automatically after 30 days if there's no dispute.",
+      impact: "Essential building block for the Lightning Network and smart contracts. Made Bitcoin programmable with time-based conditions.",
+      funFact: "Also called 'hodl' by some developers—once your coins are locked, you're forced to hodl whether you like it or not!"
+    },
+    {
+      number: "BIP 68",
+      year: "2015 (activated 2016)",
+      title: "The Relative Timer",
+      subtitle: "Relative Lock-Time",
+      icon: Timer,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki",
+      explanation: "While CLTV says 'unlock at 5pm on Tuesday,' BIP 68 says 'unlock 24 hours after the previous transaction confirms.' It's relative time instead of absolute time. Crucial for creating chains of time-dependent transactions.",
+      realWorld: "Like a game where you unlock level 5 not at a specific date, but '3 days after you beat level 4.' The timer starts when you complete the previous step.",
+      impact: "Makes Lightning Network payment channels possible. Without relative timelocks, Lightning couldn't work.",
+      funFact: "Works with CSV (BIP 112) to give Bitcoin developers two different flavors of time-based programming!"
+    },
+    {
+      number: "BIP 112",
+      year: "2015 (activated 2016)",
+      title: "The Sequence Lock",
+      subtitle: "CheckSequenceVerify (CSV)",
+      icon: GitBranch,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0112.mediawiki",
+      explanation: "CSV is BIP 68's partner in crime. While BIP 68 set the rules, CSV gave Bitcoin scripts the ability to check and enforce those rules. It's the 'enforcement officer' for relative time locks.",
+      realWorld: "Like a gym membership that says 'you can cancel, but only 90 days after you sign up.' The contract can check and enforce that 90-day waiting period automatically.",
+      impact: "Lightning Network uses this to make sure payment channels can be closed safely. It's the 'penalty mechanism' that keeps everyone honest.",
+      funFact: "CSV can lock funds for up to about 15 months (65,535 blocks). Need longer? Use CLTV!"
+    },
+    {
+      number: "BIP 125",
+      year: "2015",
+      title: "The Do-Over",
+      subtitle: "Replace-By-Fee (RBF)",
+      icon: RefreshCw,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki",
+      explanation: "Sent a Bitcoin transaction with too low a fee and it's stuck in mempool hell? RBF lets you send a replacement transaction with a higher fee. It's like being able to add more stamps to a letter that's sitting at the post office because you didn't use enough postage.",
+      realWorld: "Network gets congested and your 1 sat/byte transaction isn't confirming? Bump it to 10 sat/byte and boom—it goes through. Total game-changer during fee spikes.",
+      impact: "Gives users control over stuck transactions. No more waiting days for low-fee transactions to either confirm or drop from the mempool.",
+      funFact: "Merchants initially hated RBF because it allowed 'transaction replacement,' but users love it for unsticking payments!"
+    },
+    {
+      number: "BIP 141",
+      year: "2015 (activated 2017)",
+      title: "The Great Reorganization",
+      subtitle: "Segregated Witness (SegWit)",
+      icon: Zap,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0141.mediawiki",
+      explanation: "Bitcoin blocks were getting full, like an overstuffed suitcase. SegWit didn't make the suitcase bigger—it just realized the bulkiest part (signatures/witness data) could be packed more efficiently. Same suitcase, but suddenly 60-70% more clothes fit!",
+      realWorld: "Imagine if your carry-on luggage could magically hold more by organizing things better—socks inside shoes, rolling clothes instead of folding. That's SegWit: smarter packing, not bigger bags.",
+      impact: "Transactions became cheaper, faster, and it fixed a nasty bug (transaction malleability) that was blocking cool innovations like the Lightning Network.",
+      funFact: "Addresses starting with 'bc1' use SegWit. They're not just cooler looking—they save you money on fees!"
+    },
+    {
+      number: "BIP 173",
+      year: "2017",
+      title: "The Spell-Check",
+      subtitle: "Bech32 Address Format",
+      icon: CheckCircle,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki",
+      explanation: "Ever typed an email address wrong and the email bounced back? With Bitcoin addresses, that 'typo' could mean losing your money forever. Bech32 has built-in error detection—like autocorrect for Bitcoin. Make a mistake typing an address? Your wallet catches it before you send.",
+      realWorld: "It's like having guardrails on a mountain road. You can still technically drive off the cliff, but it's much, much harder to do by accident.",
+      impact: "Fewer lost funds from typos, all lowercase letters (easier to read), and native SegWit support means lower fees.",
+      funFact: "Bech32 can detect 1 billion typos out of every 1 billion—except it can't catch if you swap two characters right next to each other!"
+    },
+    {
+      number: "BIP 174",
+      year: "2017",
+      title: "The Assembly Line",
+      subtitle: "Partially Signed Bitcoin Transactions (PSBT)",
+      icon: FileText,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki",
+      explanation: "Ever tried to get 5 people to sign a document when they're all in different places? PSBTs solve that for Bitcoin. They let you create a transaction, pass it around to multiple signers, and each person adds their signature—like a digital signing ceremony that works across wallets and devices.",
+      realWorld: "Company needs 3 executives to sign off on a payment. CFO creates the transaction on her laptop, emails it to CEO who signs on his hardware wallet, then COO signs from his phone. All different wallets, one transaction.",
+      impact: "Makes multisig and hardware wallet coordination actually practical. Before this, getting multiple signatures was a nightmare of incompatible formats.",
+      funFact: "Hardware wallets LOVE PSBTs because they can verify exactly what they're signing without needing to trust the computer they're plugged into!"
+    },
+    {
+      number: "BIP 340-342",
+      year: "2020 (activated 2021)",
+      title: "The Privacy Upgrade",
+      subtitle: "Taproot",
+      icon: Shield,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki",
+      explanation: "Taproot is Bitcoin's invisibility cloak for smart contracts. Before Taproot, using complex spending conditions (like multisig) was obvious on the blockchain—like wearing a sign saying 'I'm using special security!' Taproot makes complex transactions look identical to simple ones. Privacy through uniformity.",
+      realWorld: "It's like having a VIP entrance at a club that looks exactly like the regular entrance. Whether you're using a simple payment or a complex multi-signature contract, outsiders can't tell the difference.",
+      impact: "Better privacy, cheaper transactions for smart contracts, and enables future innovations. Plus, more efficient signatures mean more space per block.",
+      funFact: "Taproot uses Schnorr signatures, which have been around since the 1980s but are finally making their Bitcoin debut!"
+    },
+    {
+      number: "BIP 350",
+      year: "2021",
+      title: "The Fix",
+      subtitle: "Bech32m for Taproot",
+      icon: Tool,
+      githubLink: "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki",
+      explanation: "Turns out the original Bech32 had a tiny flaw when used with Taproot's longer addresses. BIP 350 (Bech32m) fixed it. It's like Bech32 v2.0—same great error detection, now works perfectly with Taproot.",
+      realWorld: "Like when Apple releases iOS 16.0.1 to fix a bug in 16.0. Small tweak, but important for everything to work smoothly.",
+      impact: "Ensures Taproot addresses (starting with 'bc1p') have the same error-detection superpowers as regular Bech32 addresses.",
+      funFact: "The 'm' in Bech32m stands for 'modified'—creative naming at its finest!"
+    },
   ];
 
   const toggleBip = (index: number) => {
@@ -43,8 +234,10 @@ export function BIPExplainer() {
               
               return (
                 <div key={index} className="relative">
+                  {/* Timeline dot */}
                   <div className="absolute left-6 w-5 h-5 rounded-full bg-orange-500 border-4 border-black" />
                   
+                  {/* Card */}
                   <div className="ml-16">
                     <button
                       onClick={() => toggleBip(index)}
@@ -77,6 +270,7 @@ export function BIPExplainer() {
                       </div>
                     </button>
 
+                    {/* Expanded Content */}
                     {isExpanded && (
                       <div className="mt-4 bg-gray-900/30 backdrop-blur-lg rounded-xl p-6 border border-gray-800 space-y-4">
                         <div>
@@ -103,7 +297,7 @@ export function BIPExplainer() {
                             </div>
                           </div>
                           
-                          
+                          <a
                             href={bip.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
